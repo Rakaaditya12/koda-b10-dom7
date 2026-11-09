@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background-color: rgb(45, 45, 45);
+}
+
+#res {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    flex-direction: row;
+    /* flex-direction: column; */
+}
+#res > #api {
+    padding: 5px 5px 5px 20px;
+    margin-top: 10px;
+    width: 70%;
+    background-color: red;
+}
+
+.container-api {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    height: 300px;
+}

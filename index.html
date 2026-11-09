@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="res">
+      <input type="text" name="api" id="api" placeholder="Search" />
+    </div>
+
+    <script>
+    let result = document.getElementById("res");
+
+    function char(user) {
+        user.forEach((data) => {
+            const div = document.createElement("div");
+            div.classList.add("container-api")
+            const h2 = document.createElement("h2");
+
+            const getName = data.name;
+            const getImage = data.image;
+
+            div.innerHTML = `
+                <img src="${getImage}" alt="${getName}">
+            `;
+            h2.innerHTML = `<h2>${getName}</h2>`
+
+            result.appendChild(div);
+        });
+    }
+
+    fetch("https://rickandmortyapi.com/api/character")
+        .then((res) => res.json())
+        .then((user) => {
+            char(user.results);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+</script>
+  </body>
+</html>
